@@ -1,0 +1,27 @@
+replicaCount: 2
+
+image:
+  repository: lynbounif/myapp
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: LoadBalancer
+  port: 4000
+  targetPort: 4000
+  protocol: TCP
+  name: typescript-app-service
+
+resources: {}
+limits:
+  cpu: 100m
+  memory: 128Mi
+requests:
+  cpu: 100m
+  memory: 256Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80

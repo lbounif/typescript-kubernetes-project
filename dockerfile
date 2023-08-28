@@ -8,9 +8,15 @@ RUN npm i
 
 COPY . .
 
-FROM dev as production
+EXPOSE 4000
 
-RUN npm run build
+CMD ["npm", "run", "start"]
+
+# FROM dev as production
+
+# RUN npm run build
+
+
 
 
 
